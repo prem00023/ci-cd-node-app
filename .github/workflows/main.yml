@@ -21,13 +21,13 @@ jobs:
       run: npm install
 
     - name: Run tests
-      run: echo "No tests configured"
+      run: echo "No tests configured" # Or replace with: npm test
 
     - name: Build Docker image
-      run: docker build -t ${{ secrets.DOCKER_SECRET_NAME }}/nodejs-demo-app:latest .
+      run: docker build -t ${{ secrets.DOCKER_SECERT_NAME }}/nodejs-demo-app:latest .
 
-    - name: Log in to DockerHub
-      run: echo "${{ secrets.DOCKER_SECRET_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_SECRET_NAME }}" --password-stdin
+    - name: DockerHub Login
+      run: echo "${{ secrets.DOCKER_SECERT_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_SECERT_NAME }}" --password-stdin
 
-    - name: Push Docker image
-      run: docker push ${{ secrets.DOCKER_SECRET_NAME }}/nodejs-demo-app:latest
+    - name: Push Docker image to DockerHub
+      run: docker push ${{ secrets.DOCKER_SECERT_NAME }}/nodejs-demo-app:latest
