@@ -26,8 +26,8 @@ jobs:
     - name: Build Docker image
       run: docker build -t ${{ secrets.DOCKER_SECRET_NAME }}nodejs-demo-app:latest .
 
-    - name: Docker Login
-      run: echo "${{ secrets.DOCKER_SECRET_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_SECRET_NAME }} --password-stdin
+    - name: Log in to DockerHub
+      run: echo "${{ secrets.DOCKER_SECRET_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_SECRET_NAME }}" --password-stdin
 
     - name: Push Docker image
       run: docker push ${{ secrets.DOCKER_SECRET_NAME }}/nodejs-demo-app:latest
