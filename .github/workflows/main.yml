@@ -21,7 +21,7 @@ jobs:
       run: npm install
 
     - name: Run tests
-      run: echo "No tests configured" # Replace with `npm test` if tests exist
+      run: echo "No tests configured" # Replace with `npm test` if tests exist   
 
     - name: Build Docker image
       run: docker build -t ${{ secrets.DOCKER_SECRET_NAME }}nodejs-demo-app:latest .
