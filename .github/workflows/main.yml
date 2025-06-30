@@ -21,10 +21,10 @@ jobs:
       run: npm install
 
     - name: Run tests
-      run: echo "No tests configured" # Replace with `npm test` if tests exist   
+      run: echo "No tests configured"
 
     - name: Build Docker image
-      run: docker build -t ${{ secrets.DOCKER_SECRET_NAME }}nodejs-demo-app:latest .
+      run: docker build -t ${{ secrets.DOCKER_SECRET_NAME }}/nodejs-demo-app:latest .
 
     - name: Log in to DockerHub
       run: echo "${{ secrets.DOCKER_SECRET_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_SECRET_NAME }}" --password-stdin
